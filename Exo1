@@ -10,3 +10,5 @@ CREATE TABLE CLI(
 );
 
 3. Oui, il y a un ordre à respecter dans la création, si on crée des clés qui se réfèrent à des choses inexistantes, ça ne va pas marcher
+
+5. La commande est Drop Table ou Delete Table, il faut aussi faire attention à l'ordre pour les mêmes raisons ci-dessus
