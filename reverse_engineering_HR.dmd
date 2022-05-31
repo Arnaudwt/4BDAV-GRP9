@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="reverse_engineering_HR" id="E848FD43-E685-E137-776A-53F6C42EE024" version="3.5">
+<createdBy>arnau</createdBy>
+<createdTime>2022-05-31 12:39:12 UTC</createdTime>
+<ownerDesignName>reverse_engineering_HR</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>E848FD43-E685-E137-776A-53F6C42EE024</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="96C58459-F75E-436D-C269-18AFAA2E0865">
+<designStoragePath>D:\DDL</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>
