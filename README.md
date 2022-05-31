@@ -69,3 +69,7 @@ Par exemple, nous allons commencer par créer la table FOU car d'autres tables c
 
 ### 5.
 La commande est Drop Table ou Delete Table, il faut aussi faire attention à l'ordre pour les mêmes raisons ci-dessus
+
+## Exercice 2
+
+### 4. On retrouve 6 Tables : Countries, Departments, Employees,Job_History, Jobs, Locations, Regions
