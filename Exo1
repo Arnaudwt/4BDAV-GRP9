@@ -8,3 +8,5 @@ CREATE TABLE CLI(
     Dept VARCHAR2(50) NOT NULL,
     PRIMARY KEY(NumCli)
 );
+
+3. Oui, il y a un ordre à respecter dans la création, si on crée des clés qui se réfèrent à des choses inexistantes, ça ne va pas marcher
