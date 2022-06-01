@@ -170,10 +170,19 @@ SELECT table_name,num_rows FROM all_tables WHERE owner = 'HR';
 ## Exercice 3
 
 ```
+
+CREATE TABLE Vol(
+    IdVol INT PRIMARY KEY NOT NULL,
+    Date_heure_depart DATE NOT NULL,
+    Date_heure_arrivee DATE NOT NULL,
+    Ville_depart VARCHAR(255),
+    Ville_arrivee VARCHAR(255)
+);
+
 DECLARE
 v Vol%ROWTYPE;
 BEGIN
-v.Idvol := 'BA270';
+v.IdVol := 'BA270';
 v.Date_heure_depart := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
 v.Date_heure_arrivee := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
 v.Ville_depart := 'Rome';
@@ -183,3 +192,15 @@ END;
 ```
 
 ## Exercice 4
+
+```
+
+CREATE TABLE PILOTE(
+    Matricule INT PRIMARY KEY NOT NULL,
+    Nom VARCHAR(255) NOT NULL,
+    Ville VARCHAR(255) NOT NULL,
+    Age INT NOT NULL,
+    Salaire INT NOT NULL
+);
+
+```
