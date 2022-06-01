@@ -179,16 +179,18 @@ CREATE TABLE Vol(
     Ville_arrivee VARCHAR(255)
 );
 
+set serveroutput on;
 DECLARE
-v Vol%ROWTYPE;
+    v vol%ROWTYPE;
 BEGIN
-v.IdVol := 'BA270';
-v.Date_heure_depart := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
-v.Date_heure_arrivee := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
-v.Ville_depart := 'Rome';
-v.Ville_arrivee := 'Paris';
-INSERT INTO vol VALUES v;
+    v.IDVOL := 'BA270';
+    v.Date_heure_depart := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
+    v.Date_heure_arrivee := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
+    v.Ville_depart := 'Rome';
+    v.Ville_arrivee := 'Paris';
+    INSERT INTO VOL VALUES v;
 END;
+/
 ```
 
 ## Exercice 4
