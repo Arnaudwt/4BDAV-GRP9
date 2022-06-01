@@ -172,23 +172,25 @@ SELECT table_name,num_rows FROM all_tables WHERE owner = 'HR';
 ```
 
 CREATE TABLE Vol(
-    IdVol INT PRIMARY KEY NOT NULL,
+    IdVol VARCHAR2(5) PRIMARY KEY NOT NULL,
     Date_heure_depart DATE NOT NULL,
     Date_heure_arrivee DATE NOT NULL,
     Ville_depart VARCHAR(255),
     Ville_arrivee VARCHAR(255)
 );
 
+set serveroutput on;
 DECLARE
-v Vol%ROWTYPE;
+    v vol%ROWTYPE;
 BEGIN
-v.IdVol := 'BA270';
-v.Date_heure_depart := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
-v.Date_heure_arrivee := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
-v.Ville_depart := 'Rome';
-v.Ville_arrivee := 'Paris';
-INSERT INTO vol VALUES v;
+    v.IDVOL := 'BA270';
+    v.Date_heure_depart := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
+    v.Date_heure_arrivee := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
+    v.Ville_depart := 'Rome';
+    v.Ville_arrivee := 'Paris';
+    INSERT INTO VOL VALUES v;
 END;
+/
 ```
 
 ## Exercice 4
