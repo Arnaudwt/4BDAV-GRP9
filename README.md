@@ -218,7 +218,7 @@ sommeSalaires := sommeSalaires + salairePilote;
 END LOOP;
 moyenneSalaires := sommeSalaires / curseur1%ROWCOUNT;
 CLOSE curseur1;
-DBMS_OUTPUT.PUT_LINE('Moyenne salaires (pilotes de 45 <E0> 55 ans) : ' ||
+DBMS_OUTPUT.PUT_LINE('Moyenne salaires : ' ||
 moyenneSalaires);
 END;
 
