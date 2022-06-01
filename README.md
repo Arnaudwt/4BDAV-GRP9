@@ -115,3 +115,25 @@ SELECT e.FIRST_NAME || ' ' || e.LAST_NAME, HIRE_DATE
 from EMPLOYEES e
 WHERE HIRE_DATE < (SELECT HIRE_DATE from EMPLOYEES WHERE e.MANAGER_ID = EMPLOYEE_ID)
 ```
+
+# DAY 2
+
+## Exercice 1
+
+## Exercice 2
+
+## Exercice 3
+
+
+```
+DECLARE
+v vol%ROWTYPE;
+BEGIN
+v.numvol := 'BA270';
+v.heure_départ := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
+v.heure_arrivée := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
+v.ville_départ := 'Rome';
+v.ville_arrivée := 'Paris';
+INSERT INTO vol VALUES v;
+END;
+```
