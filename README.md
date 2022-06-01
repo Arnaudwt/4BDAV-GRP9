@@ -163,6 +163,10 @@ END;
 ```
 ## Exercice 2
 
+```
+SELECT table_name,num_rows FROM all_tables WHERE owner = 'HR';
+```
+
 ## Exercice 3
 
 ```
