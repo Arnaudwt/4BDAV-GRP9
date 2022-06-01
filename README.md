@@ -182,7 +182,7 @@ CREATE TABLE Vol(
 DECLARE
 v Vol%ROWTYPE;
 BEGIN
-v.Idvol := 'BA270';
+v.IdVol := 'BA270';
 v.Date_heure_depart := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
 v.Date_heure_arrivee := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
 v.Ville_depart := 'Rome';
@@ -202,5 +202,24 @@ CREATE TABLE PILOTE(
     Age INT NOT NULL,
     Salaire INT NOT NULL
 );
+
+DECLARE
+CURSOR curseur1 IS SELECT salaire FROM pilote
+WHERE (Age >= 45 AND Age <=55);
+salairePilote Pilote.Salaire%TYPE;
+sommeSalaires NUMBER(11,2) := 0;
+moyenneSalaires NUMBER(11,2);
+BEGIN
+OPEN curseur1;
+LOOP
+FETCH curseur1 INTO salairePilote;
+EXIT WHEN (curseur1%NOTFOUND OR curseur1%NOTFOUND IS NULL);
+sommeSalaires := sommeSalaires + salairePilote;
+END LOOP;
+moyenneSalaires := sommeSalaires / curseur1%ROWCOUNT;
+CLOSE curseur1;
+DBMS_OUTPUT.PUT_LINE('Moyenne salaires (pilotes de 45 <E0> 55 ans) : ' ||
+moyenneSalaires);
+END;
 
 ```
