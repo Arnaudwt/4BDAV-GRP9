@@ -26,7 +26,7 @@ DBMS_OUTPUT.PUT_LINE('nbcountries : '||nbcountries||' nbdepartments : '||nbdepar
 
 SELECT COUNT(*) INTO nbmanager
 FROM EMPLOYEES e
-WHERE e.JOB_ID LIKE 'ST_MAN' OR e.JOB_ID LIKE 'SA_MAN';
+WHERE e.JOB_ID LIKE 'ST_MAN' OR e.JOB_ID LIKE 'SA_MAN' OR e.JOB_ID LIKE 'FI_MGR' OR e.JOB_ID LIKE 'AC_MGR' OR e.JOB_ID LIKE 'PU_MAN' OR e.JOB_ID LIKE 'MK_MAN';
 propmanager := 100 * nbmanager / nbemployees;
 
 
