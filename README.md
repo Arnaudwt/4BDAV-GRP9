@@ -125,6 +125,15 @@ WHERE HIRE_DATE < (SELECT HIRE_DATE from EMPLOYEES WHERE e.MANAGER_ID = EMPLOYEE
 ## Exercice 3
 
 ```
+
+CREATE TABLE Vol(
+    IdVol INT PRIMARY KEY NOT NULL,
+    Date_heure_depart DATE NOT NULL,
+    Date_heure_arrivee DATE NOT NULL,
+    Ville_depart VARCHAR(255),
+    Ville_arrivee VARCHAR(255)
+);
+
 DECLARE
 v Vol%ROWTYPE;
 BEGIN
@@ -138,3 +147,15 @@ END;
 ```
 
 ## Exercice 4
+
+```
+
+CREATE TABLE PILOTE(
+    Matricule INT PRIMARY KEY NOT NULL,
+    Nom VARCHAR(255) NOT NULL,
+    Ville VARCHAR(255) NOT NULL,
+    Age INT NOT NULL,
+    Salaire INT NOT NULL
+);
+
+```
