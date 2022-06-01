@@ -172,7 +172,7 @@ SELECT table_name,num_rows FROM all_tables WHERE owner = 'HR';
 ```
 
 CREATE TABLE Vol(
-    IdVol VARCHAR2(5) PRIMARY KEY NOT NULL,
+    IdVol VARCHAR(255) NOT NULL,
     Date_heure_depart DATE NOT NULL,
     Date_heure_arrivee DATE NOT NULL,
     Ville_depart VARCHAR(255),
@@ -204,5 +204,24 @@ CREATE TABLE PILOTE(
     Age INT NOT NULL,
     Salaire INT NOT NULL
 );
+
+DECLARE
+CURSOR curseur1 IS SELECT salaire FROM pilote
+WHERE (Age >= 45 AND Age <=55);
+salairePilote Pilote.Salaire%TYPE;
+sommeSalaires NUMBER(11,2) := 0;
+moyenneSalaires NUMBER(11,2);
+BEGIN
+OPEN curseur1;
+LOOP
+FETCH curseur1 INTO salairePilote;
+EXIT WHEN (curseur1%NOTFOUND OR curseur1%NOTFOUND IS NULL);
+sommeSalaires := sommeSalaires + salairePilote;
+END LOOP;
+moyenneSalaires := sommeSalaires / curseur1%ROWCOUNT;
+CLOSE curseur1;
+DBMS_OUTPUT.PUT_LINE('Moyenne salaires (pilotes de 45 <E0> 55 ans) : ' ||
+moyenneSalaires);
+END;
 
 ```
