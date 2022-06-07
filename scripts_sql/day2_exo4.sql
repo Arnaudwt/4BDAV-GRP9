@@ -30,3 +30,6 @@ CLOSE curseur1;
 DBMS_OUTPUT.PUT_LINE('Moyenne salaires : ' ||
 moyenneSalaires);
 END;
+
+
+SELECT * from VOL
