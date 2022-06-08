@@ -232,7 +232,11 @@ END;
 
 ### Hadoop
 
+Hadoop comporte trois éléments de base à son écosystème :
 
+- HDFS (Hadoop Distributed File System), il permet de stocker et de répliquer des données sur plusieurs serveurs. HDFS utilise un NameNode et un DataNode, le premier stocke les données et le deuxième les métadonnées de celles-ci.
+- Yarn (Yet Another Resource Negotiator), il assure la gestion des ressources Hadoop et les nodes évoqués auparavant. 
+- MapReduce, c'est un élément qui lance des algorithmes pour décomposer, filtrer et trier des datasets. 
 
 ### Hive
 
