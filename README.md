@@ -236,4 +236,13 @@ END;
 
 ### Hive
 
+Apache Hive est un logiciel de data warehouse. Il permet d'effectuer facilement et rapidement des requêtes de type SQL pour les adresser aux données stockées sur le HDFS (stockage Hadoop)
+Il permet également d'intégrer des fonctions de type Map et Reduce.
+
+Hive est composé d'un pilote qui va analyser la requete de l'utilisateur, la planifier, l'optimiser et l'executer en la soumettant au JobTracker.
+Ainsi la requête traduite est soumise au HDFS assuré par Hadoop.
+
+Hive est utilisé pour sa simplicité d'utilisation (langage SQL-like) et permet d'accélèrer l'insertion initiale de données.
+
+
 ### Hbase
