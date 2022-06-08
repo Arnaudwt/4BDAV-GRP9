@@ -91,3 +91,137 @@ FROM EMPLOYEES
 INNER JOIN DEPARTMENTS ON EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
 GROUP BY departments.department_name
 ```
+
+### 3.
+```
+SELECT JOB_TITLE, MAX_SALARY
+FROM JOBS
+WHERE rownum <= 10
+ORDER BY MAX_SALARY DESC
+```
+### 4.
+
+```
+SELECT EMPLOYEES.FIRST_NAME || ' ' || EMPLOYEES.LAST_NAME, SALARY
+from EMPLOYEES
+INNER JOIN DEPARTMENTS ON EMPLOYEES.DEPARTMENT_ID = DEPARTMENTS.DEPARTMENT_ID
+WHERE DEPARTMENT_NAME = 'IT' AND SALARY > (SELECT AVG(SALARY) FROM EMPLOYEES)
+```
+
+### 5.
+
+```
+SELECT e.FIRST_NAME || ' ' || e.LAST_NAME, HIRE_DATE
+from EMPLOYEES e
+WHERE HIRE_DATE < (SELECT HIRE_DATE from EMPLOYEES WHERE e.MANAGER_ID = EMPLOYEE_ID)
+```
+
+# DAY 2
+
+## Exercice 1
+```
+set serveroutput on;
+
+DECLARE
+nbcountries INTEGER; -- nb total de pays
+nbdepartments INTEGER; --nb total departement
+nbemployees INTEGER; --nb total employees
+nbjobhistory INTEGER; --nb total job history
+nbjobs INTEGER; -- nb total de jobs
+nblocations INTEGER;
+nbregions INTEGER;
+nbmanager INTEGER; --nombre de manager
+propmanager INTEGER; -- proportion de manager
+
+BEGIN
+
+SELECT COUNT(*) INTO nbcountries FROM countries;
+SELECT COUNT(*) INTO nbdepartments FROM departments;
+SELECT COUNT(*) INTO nbemployees FROM employees;
+SELECT COUNT(*) INTO nbjobhistory FROM job_history;
+SELECT COUNT(*) INTO nbjobs FROM jobs;
+SELECT COUNT(*) INTO nblocations FROM locations;
+SELECT COUNT(*) INTO nbregions FROM regions;
+
+DBMS_OUTPUT.PUT_LINE('nbcountries : '||nbcountries||' nbdepartments : '||nbdepartments||' nbemployees : '||nbemployees||' nbjobhistory : '||nbjobhistory||' nbjobs : '||nbjobs||' nblocations : '||nblocations||' nbregions : '||nbregions);
+
+
+SELECT COUNT(*) INTO nbmanager
+FROM EMPLOYEES e
+WHERE e.JOB_ID LIKE 'ST_MAN' OR e.JOB_ID LIKE 'SA_MAN' OR e.JOB_ID LIKE 'FI_MGR' OR e.JOB_ID LIKE 'AC_MGR' OR e.JOB_ID LIKE 'PU_MAN' OR e.JOB_ID LIKE 'MK_MAN';
+propmanager := 100 * nbmanager / nbemployees;
+
+
+
+DBMS_OUTPUT.PUT_LINE('nombre de managers = '||nbmanager);
+DBMS_OUTPUT.PUT_LINE('proportion de managers = '||propmanager||'%');
+
+
+
+END;
+
+```
+## Exercice 2
+
+```
+SELECT table_name,num_rows FROM all_tables WHERE owner = 'HR';
+```
+
+## Exercice 3
+
+```
+
+CREATE TABLE Vol(
+    IdVol VARCHAR(255) NOT NULL,
+    Date_heure_depart DATE NOT NULL,
+    Date_heure_arrivee DATE NOT NULL,
+    Ville_depart VARCHAR(255),
+    Ville_arrivee VARCHAR(255)
+);
+
+set serveroutput on;
+DECLARE
+    v vol%ROWTYPE;
+BEGIN
+    v.IDVOL := 'BA270';
+    v.Date_heure_depart := to_date('01/06/2022 10:15', 'DD/MM/YYYY hh24:mi');
+    v.Date_heure_arrivee := to_date('01/06/2022 12:15', 'DD/MM/YYYY hh24:mi');
+    v.Ville_depart := 'Rome';
+    v.Ville_arrivee := 'Paris';
+    INSERT INTO VOL VALUES v;
+END;
+/
+```
+
+## Exercice 4
+
+```
+
+CREATE TABLE PILOTE(
+    Matricule INT PRIMARY KEY NOT NULL,
+    Nom VARCHAR(255) NOT NULL,
+    Ville VARCHAR(255) NOT NULL,
+    Age INT NOT NULL,
+    Salaire INT NOT NULL
+);
+
+DECLARE
+CURSOR curseur1 IS SELECT salaire FROM pilote
+WHERE (Age >= 45 AND Age <=55);
+salairePilote Pilote.Salaire%TYPE;
+sommeSalaires NUMBER(11,2) := 0;
+moyenneSalaires NUMBER(11,2);
+BEGIN
+OPEN curseur1;
+LOOP
+FETCH curseur1 INTO salairePilote;
+EXIT WHEN (curseur1%NOTFOUND OR curseur1%NOTFOUND IS NULL);
+sommeSalaires := sommeSalaires + salairePilote;
+END LOOP;
+moyenneSalaires := sommeSalaires / curseur1%ROWCOUNT;
+CLOSE curseur1;
+DBMS_OUTPUT.PUT_LINE('Moyenne salaires : ' ||
+moyenneSalaires);
+END;
+
+```
