@@ -225,3 +225,13 @@ moyenneSalaires);
 END;
 
 ```
+
+# DAY 3
+
+## Exercice 1
+
+### Hadoop
+
+### Hive
+
+### Hbase
