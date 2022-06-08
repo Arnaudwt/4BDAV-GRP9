@@ -232,7 +232,23 @@ END;
 
 ### Hadoop
 
+Hadoop comporte trois éléments de base à son écosystème :
+
+- HDFS (Hadoop Distributed File System), il permet de stocker et de répliquer des données sur plusieurs serveurs. HDFS utilise un NameNode et un DataNode, le premier stocke les données et le deuxième les métadonnées de celles-ci.
+- Yarn (Yet Another Resource Negotiator), il assure la gestion des ressources Hadoop et les nodes évoqués auparavant. 
+- MapReduce, c'est un élément qui lance des algorithmes pour décomposer, filtrer et trier des datasets. 
+
 ### Hive
+
+
+Apache Hive est un logiciel de data warehouse. Il permet d'effectuer facilement et rapidement des requêtes de type SQL pour les adresser aux données stockées sur le HDFS (stockage Hadoop)
+Il permet également d'intégrer des fonctions de type Map et Reduce.
+
+Hive est composé d'un pilote qui va analyser la requete de l'utilisateur, la planifier, l'optimiser et l'executer en la soumettant au JobTracker.
+Ainsi la requête traduite est soumise au HDFS assuré par Hadoop.
+
+Hive est utilisé pour sa simplicité d'utilisation (langage SQL-like) et permet d'accélèrer l'insertion initiale de données.
+
 
 ### Hbase
 ## L'architecture HBase est divisée en 3 éléménts principaux: HMaster, Region Server et Zookeeper.
